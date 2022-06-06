@@ -15,10 +15,13 @@ pipeline {
                 sh './test.bin'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+    }
+    post {
+        success {
+            echo 'Tests finished successfully!'
+        }
+        failure {
+            echo 'Tests failed!'
         }
     }
 }
