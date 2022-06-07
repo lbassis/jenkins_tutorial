@@ -1,6 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    printzf("Ok funcionando\n");
+    printf("Ok funcionando\n");
     return 0;
 }
