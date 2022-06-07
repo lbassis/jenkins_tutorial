@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+      cron 'H * * * *'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -22,9 +26,6 @@ pipeline {
         }
         failure {
             echo 'Tests failed!'
-            mail to: 'lucas.assis@encora.com',
-                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is wrong with ${env.BUILD_URL}"
         }
     }
 }
